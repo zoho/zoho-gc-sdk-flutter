@@ -1,0 +1,27 @@
+name: zoho_gc_sdk
+description:  The Guided Conversations (GC) mobile SDK for iOS helps developers build a conversational self-service platform to achieve the best customer service. GC replaces human interactions with built-in conversations. It directs customers to appropriate solutions according to their responses during conversations.
+version: 1.0.0
+homepage:
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+  flutter: '>=2.5.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.zoho.gc.zoho_gc_sdk
+        pluginClass: ZohoGcSdkPlugin
+      ios:
+        pluginClass: ZohoGcSdkPlugin
