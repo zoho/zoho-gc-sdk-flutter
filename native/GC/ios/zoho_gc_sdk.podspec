@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'zoho_gc_sdk'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'The Guided Conversations (GC) mobile SDK'
   s.description      = <<-DESC
 The Guided Conversations (GC) mobile SDK helps developers build a conversational self-service platform to achieve the best customer service.
@@ -15,7 +15,7 @@ The Guided Conversations (GC) mobile SDK helps developers build a conversational
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'ZohoGCSDK', '1.3.2'
+  s.dependency 'ZohoGCSDK', '1.3.3'
   s.platform = :ios, '13.0'
   s.ios.deployment_target  = '13.0'
 end
