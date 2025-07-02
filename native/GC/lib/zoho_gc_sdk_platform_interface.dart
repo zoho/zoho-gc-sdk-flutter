@@ -26,9 +26,7 @@ abstract class ZohoGcSdkPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<void> show(String orgId, String botId, String domain);
-
-  Future<void> showFlow(String orgId, String flowId, String domain);
+  Future<void> showFlow(String orgId, String flowId, String domain, String preferredLanguage);
 
   Future<void> setSessionVariable(String botId, List<Map<String, String>> sessionVariables);
 

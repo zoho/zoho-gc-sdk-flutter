@@ -13,8 +13,6 @@ public class ZohoGcSdkPlugin: NSObject, FlutterPlugin {
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     let arguments: [String: Any]? = call.arguments as? Dictionary<String, Any>
     switch ZDGCAPI(rawValue:call.method) {
-    case .show:
-      show(arguments:arguments)
      case .showFlow:
         showFlow(arguments: arguments)
      case .setSessionVariable:
@@ -32,20 +30,13 @@ public class ZohoGcSdkPlugin: NSObject, FlutterPlugin {
     }
   }
 
-  public func show(arguments: [String: Any]?){
-        guard let orgId = arguments?["orgId"] as? String,
-                let botId = arguments?["botId"] as? String,
-                let domain = arguments?["domain"] as? String
-          else { return }
-          ZohoGC.show(orgId: orgId, botId: botId, domain: domain)
-  }
-
    public func showFlow(arguments: [String: Any]?){
       guard let orgId = arguments?["orgId"] as? String,
               let flowId = arguments?["flowId"] as? String,
-              let domain = arguments?["domain"] as? String
+              let domain = arguments?["domain"] as? String,
+              let preferredLanguage = arguments?["preferredLanguage"] as? String
         else { return }
-        ZohoGC.showFlow(orgId: orgId, flowId: flowId, domain: domain)
+       ZohoGC.showFlow(orgId: orgId, flowId: flowId, domain: domain, preferredLanguage: preferredLanguage)
    }
 
    public func setSessionVariable(arguments: [String: Any]?){
@@ -92,7 +83,6 @@ public class ZohoGcSdkPlugin: NSObject, FlutterPlugin {
       }
 
    private enum ZDGCAPI: String {
-          case show
           case showFlow
           case setSessionVariable
           case updateSessionVariable

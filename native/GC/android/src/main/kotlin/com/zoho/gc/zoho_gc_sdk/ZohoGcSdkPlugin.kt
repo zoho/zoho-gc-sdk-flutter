@@ -47,7 +47,6 @@ class ZohoGcSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     override fun onMethodCall(call: MethodCall, result: Result) {
         val arguments = call.arguments as? HashMap<String, Any>?
         when (call.method) {
-            "show" -> show(arguments)
             "enableLog" -> enableLog(arguments)
             "showFlow" -> showFlow(arguments)
             "setSessionVariable" -> setSessionVariable(arguments)
@@ -80,22 +79,13 @@ class ZohoGcSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         activity = null
     }
 
-
-    fun show(arguments: HashMap<String, Any>?) {
-        val orgId = arguments?.get("orgId") as? String ?: ""
-        val botId = arguments?.get("botId") as? String ?: ""
-        val domain = arguments?.get("domain") as? String ?: ""
-        activity?.let {
-            ZohoGC.show(it, orgId, botId, domain)
-        }
-    }
-
     fun showFlow(arguments: HashMap<String, Any>?) {
         val orgId = arguments?.get("orgId") as? String ?: ""
-        val botId = arguments?.get("botId") as? String ?: ""
+        val botId = arguments?.get("flowId") as? String ?: ""
         val domain = arguments?.get("domain") as? String ?: ""
+        val preferredLanguage = arguments?.get("preferredLanguage") as? String ?: ""
         activity?.let {
-            ZohoGC.showFlow(it, orgId, botId, domain)
+            ZohoGC.showFlow(it, orgId, botId, domain, preferredLanguage)
         }
     }
 

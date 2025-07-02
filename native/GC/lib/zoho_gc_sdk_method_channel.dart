@@ -14,13 +14,8 @@ class MethodChannelZohoGcSdk extends ZohoGcSdkPlatform {
   final methodChannel = const MethodChannel('zoho_gc_sdk');
 
   @override
-  Future<void> show(String orgId, String botId, String domain) async {
-    await methodChannel.invokeMethod("show", {"orgId": orgId, "botId": botId, "domain": domain});
-  }
-
-  @override
-  Future<void> showFlow(String orgId, String flowId, String domain) async {
-    await methodChannel.invokeMethod("showFlow", {"orgId": orgId, "flowId": flowId, "domain": domain});
+  Future<void> showFlow(String orgId, String flowId, String domain, String preferredLanguage) async {
+    await methodChannel.invokeMethod("showFlow", {"orgId": orgId, "flowId": flowId, "domain": domain, "preferredLanguage": preferredLanguage});
   }
 
   /// ASAP GC set session variable channel method

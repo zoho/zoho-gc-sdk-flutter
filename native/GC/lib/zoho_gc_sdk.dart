@@ -4,8 +4,7 @@ import 'package:zoho_gc_sdk/ThemeConstant.dart';
 
 class ZohoGcSdk {
   // show(String orgId, String botId, String domain)
-  static Future<void> show(String orgId, String botId, String domain) => ZohoGcSdkPlatform.instance.show(orgId, botId, domain);
-  static Future<void> showFlow(String orgId, String flowId, String domain) => ZohoGcSdkPlatform.instance.showFlow(orgId, flowId, domain);
+  static Future<void> showFlow(String orgId, String flowId, String domain,{ String preferredLanguage = ""}) => ZohoGcSdkPlatform.instance.showFlow(orgId, flowId, domain, preferredLanguage);
   static Future<void> setSessionVariable(String botId, List<Map<String, String>> sessionVariables) => ZohoGcSdkPlatform.instance.setSessionVariable(botId, sessionVariables);
   static Future<void> updateSessionVariable(String orgId, String botId, String domain, List<Map<String, String>> sessionVariables) => ZohoGcSdkPlatform.instance.updateSessionVariable(orgId, botId, domain, sessionVariables);
   static Future<void> enableLog(bool isLogEnabled) => ZohoGcSdkPlatform.instance.enableLog(isLogEnabled);
