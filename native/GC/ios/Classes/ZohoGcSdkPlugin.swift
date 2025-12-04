@@ -25,10 +25,17 @@ public class ZohoGcSdkPlugin: NSObject, FlutterPlugin {
             clearData(arguments: arguments)
      case .setTheme:
             setTheme(arguments:arguments)
+    case .updateLanguageIcon:
+        updateLanguageIcon(arguments: arguments)
     default:
       result(FlutterMethodNotImplemented)
     }
   }
+    
+    public func updateLanguageIcon(arguments: [String: Any]?){
+        guard let visibility = arguments?["isVisible"] as? Bool else {return}
+        ZohoGC.updateLanguageIcon(isEnable: visibility)
+    }
 
    public func showFlow(arguments: [String: Any]?){
       guard let orgId = arguments?["orgId"] as? String,
@@ -40,25 +47,13 @@ public class ZohoGcSdkPlugin: NSObject, FlutterPlugin {
    }
 
    public func setSessionVariable(arguments: [String: Any]?){
-      guard let botId = arguments?["botId"] as? String, let arguments = arguments?["sessionVariables"] as? [[String:String]] else { return }
-      var sessionVariables: [String: String] = [:]
-      arguments.forEach {
-          if let key = $0["name"], let value = $0["value"] {
-              sessionVariables[key] = value
-          }
-      }
-      ZohoGC.setSessionVariables(botId: botId, sessionVariables: sessionVariables)
+      guard let botId = arguments?["botId"] as? String, let arguments = arguments?["sessionVariables"] as? [[String:Any]] else { return }
+      ZohoGC.setSessionVariables(botId: botId, sessionVariables: arguments)
    }
 
     public func updateSessionVariable(arguments: [String: Any]?){
-        guard let botId = arguments?["botId"] as? String, let arguments = arguments?["sessionVariables"] as? [[String:String]] else { return }
-        var sessionVariables: [String: String] = [:]
-        arguments.forEach {
-           if let key = $0["name"], let value = $0["value"] {
-               sessionVariables[key] = value
-            }
-        }
-        ZohoGC.updateSessionVariables(botId: botId, sessionVariables: sessionVariables)
+        guard let botId = arguments?["botId"] as? String, let arguments = arguments?["sessionVariables"] as? [[String:Any]] else { return }
+        ZohoGC.updateSessionVariables(botId: botId, sessionVariables: arguments)
     }
 
      public func enableLog(arguments: [String: Any]?){
@@ -89,6 +84,7 @@ public class ZohoGcSdkPlugin: NSObject, FlutterPlugin {
           case enableLog
           case clearData
           case setTheme
+          case updateLanguageIcon
     }
 
 }

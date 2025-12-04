@@ -54,6 +54,7 @@ class ZohoGcSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
             "clearData" -> clearData(arguments)
             "setTheme" -> setTheme(arguments)
             "setLocale" -> setLocale(arguments)
+            "updateLanguageIcon" -> updateLanguageIcon(arguments)
         }
     }
 
@@ -153,6 +154,11 @@ class ZohoGcSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         val countryCode = arguments?.get("countryCode") as? String ?: Locale.getDefault().country
         val locale = Locale(languageCode, countryCode)
         ZConfigUtil.locale = locale
+    }
+
+    fun updateLanguageIcon(arguments: HashMap<String, Any>?){
+        val isVisible = arguments?.get("isVisible") as? Boolean ?: false
+        ZConfigUtil.hideLanguageSelectionOption = !isVisible
     }
 
 }

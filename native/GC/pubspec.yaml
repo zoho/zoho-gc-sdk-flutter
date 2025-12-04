@@ -1,6 +1,6 @@
 name: zoho_gc_sdk
 description:  The Guided Conversations (GC) mobile SDK for iOS helps developers build a conversational self-service platform to achieve the best customer service. GC replaces human interactions with built-in conversations. It directs customers to appropriate solutions according to their responses during conversations.
-version: 1.0.2
+version: 1.0.3
 homepage:
 
 environment:

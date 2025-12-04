@@ -11,6 +11,7 @@ class ZohoGcSdk {
   static Future<void> clearData(String botId) => ZohoGcSdkPlatform.instance.clearData(botId);
   static Future<void> setTheme(ZDThemeType type) => ZohoGcSdkPlatform.instance.setTheme(type);
   static Future<void> setLocale(Locale locale) => ZohoGcSdkPlatform.instance.setLocale(locale.languageCode, locale.countryCode);
+  static Future<void> updateLanguageIcon(bool isVisible) =>  ZohoGcSdkPlatform.instance.updateLanguageIcon(isVisible);
 
 
 }

@@ -49,4 +49,9 @@ class MethodChannelZohoGcSdk extends ZohoGcSdkPlatform {
   Future<void> setLocale(String languageCode, String? countryCode) async {
     await methodChannel.invokeMethod('setLocale', {"languageCode": languageCode, "countryCode": countryCode,});
   }
+
+  @override
+  Future<void> updateLanguageIcon(bool isVisible) async {
+    await methodChannel.invokeMethod('updateLanguageIcon', {"isVisible":isVisible});
+  }
 }

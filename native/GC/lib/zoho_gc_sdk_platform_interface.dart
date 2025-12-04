@@ -40,4 +40,6 @@ abstract class ZohoGcSdkPlatform extends PlatformInterface {
 
   Future<void> setLocale(String languageCode, String? countryCode);
 
+  Future<void> updateLanguageIcon(bool isVisible);
+
 }
