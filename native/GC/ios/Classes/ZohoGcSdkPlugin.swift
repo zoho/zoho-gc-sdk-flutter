@@ -27,6 +27,10 @@ public class ZohoGcSdkPlugin: NSObject, FlutterPlugin {
             setTheme(arguments:arguments)
     case .updateLanguageIcon:
         updateLanguageIcon(arguments: arguments)
+    case .hideEndChatPopupWindow:
+        hideEndChatPopUp(arguments: arguments)
+    case .hideLanguageMismatchPopupWindow:
+        hideLanguageMismatchPopupWindow(arguments: arguments)
     default:
       result(FlutterMethodNotImplemented)
     }
@@ -77,6 +81,16 @@ public class ZohoGcSdkPlugin: NSObject, FlutterPlugin {
          ZDThemeManager.setTheme(type:type)
       }
 
+    public func hideEndChatPopUp(arguments: [String: Any]?) {
+        guard let isHide = arguments?["isHide"] as? Bool else {return}
+        ZohoGC.hideEndChatPopupWindow(isHide: isHide)
+    }
+
+    public func hideLanguageMismatchPopupWindow(arguments: [String: Any]?) {
+        guard let isHide = arguments?["isHide"] as? Bool else {return}
+        ZohoGC.hideLanguageMismatchPopupWindow(isHide: isHide)
+    }
+
    private enum ZDGCAPI: String {
           case showFlow
           case setSessionVariable
@@ -85,6 +99,8 @@ public class ZohoGcSdkPlugin: NSObject, FlutterPlugin {
           case clearData
           case setTheme
           case updateLanguageIcon
+          case hideEndChatPopupWindow
+          case hideLanguageMismatchPopupWindow
     }
 
 }

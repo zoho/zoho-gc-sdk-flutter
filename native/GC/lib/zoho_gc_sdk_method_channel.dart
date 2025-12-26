@@ -54,4 +54,14 @@ class MethodChannelZohoGcSdk extends ZohoGcSdkPlatform {
   Future<void> updateLanguageIcon(bool isVisible) async {
     await methodChannel.invokeMethod('updateLanguageIcon', {"isVisible":isVisible});
   }
+
+  @override
+  Future<void> hideEndChatPopupWindow(bool isHide) async {
+    await methodChannel.invokeMethod('hideEndChatPopupWindow', {"isHide":isHide});
+  }
+
+  @override
+  Future<void> hideLanguageMismatchPopupWindow(bool isHide) async {
+    await methodChannel.invokeMethod('hideLanguageMismatchPopupWindow', {"isHide":isHide});
+  }
 }

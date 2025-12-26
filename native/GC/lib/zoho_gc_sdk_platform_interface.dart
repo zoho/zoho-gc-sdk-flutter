@@ -42,4 +42,8 @@ abstract class ZohoGcSdkPlatform extends PlatformInterface {
 
   Future<void> updateLanguageIcon(bool isVisible);
 
+  Future<void> hideEndChatPopupWindow(bool isHide);
+
+  Future<void> hideLanguageMismatchPopupWindow(bool isHide);
+
 }

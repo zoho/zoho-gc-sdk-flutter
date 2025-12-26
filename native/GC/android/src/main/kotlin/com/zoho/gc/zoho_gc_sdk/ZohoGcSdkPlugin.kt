@@ -55,6 +55,8 @@ class ZohoGcSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
             "setTheme" -> setTheme(arguments)
             "setLocale" -> setLocale(arguments)
             "updateLanguageIcon" -> updateLanguageIcon(arguments)
+            "hideEndChatPopupWindow" -> hideEndChatPopupWindow(arguments)
+            "hideLanguageMismatchPopupWindow" -> hideLanguageMismatchPopupWindow(arguments)
         }
     }
 
@@ -159,6 +161,16 @@ class ZohoGcSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     fun updateLanguageIcon(arguments: HashMap<String, Any>?){
         val isVisible = arguments?.get("isVisible") as? Boolean ?: false
         ZConfigUtil.hideLanguageSelectionOption = !isVisible
+    }
+
+    fun hideEndChatPopupWindow(arguments: HashMap<String, Any>?){
+        val isHide = arguments?.get("isHide") as? Boolean ?: false
+        ZConfigUtil.hideEndChatPopupWindow = isHide
+    }
+
+    fun hideLanguageMismatchPopupWindow(arguments: HashMap<String, Any>?){
+        val isHide = arguments?.get("isHide") as? Boolean ?: false
+        ZohoGC.hideLanguageMismatchPopupWindow(isHide)
     }
 
 }

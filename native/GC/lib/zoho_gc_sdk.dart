@@ -12,6 +12,7 @@ class ZohoGcSdk {
   static Future<void> setTheme(ZDThemeType type) => ZohoGcSdkPlatform.instance.setTheme(type);
   static Future<void> setLocale(Locale locale) => ZohoGcSdkPlatform.instance.setLocale(locale.languageCode, locale.countryCode);
   static Future<void> updateLanguageIcon(bool isVisible) =>  ZohoGcSdkPlatform.instance.updateLanguageIcon(isVisible);
-
+  static Future<void> hideEndChatPopupWindow(bool isHide) =>  ZohoGcSdkPlatform.instance.hideEndChatPopupWindow(isHide);
+  static Future<void> hideLanguageMismatchPopupWindow(bool isHide) =>  ZohoGcSdkPlatform.instance.hideLanguageMismatchPopupWindow(isHide);
 
 }
