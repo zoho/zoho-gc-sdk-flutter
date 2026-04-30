@@ -1,3 +1,12 @@
+## 1.0.6
+
+### Android
+    - Updated the native SDK version from 1.4.5 to 1.4.6.
+
+### iOS
+    - Updated the native SDK version from 1.4.6 to 1.5.2.
+
+
 ## 1.0.5
 
 

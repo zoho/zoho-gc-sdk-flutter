@@ -68,6 +68,6 @@ android {
 
 }
 dependencies {
-    implementation "com.zoho.gc:chat:1.4.5"
+    implementation "com.zoho.gc:chat:1.4.6"
 }
 
